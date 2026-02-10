@@ -1,9 +1,10 @@
 def cut_webtoon_cascade(...):
-    # existing logic
+    ...
+    scenes_xy = _merge_close_and_small(scenes_xy, cfg, total_h=H)
 
-    # Adaptive scene refinement
-    for scene in scenes:
-        if scene.height > SOME_HEIGHT_THRESHOLD:
-            scene = split_scene_adaptive(scene)
+    # New logic to refine scenes
+    high_scenes = [scene for scene in scenes_xy if some_condition_for_high(scene)]
+    refined_scenes = split_scene_adaptive(high_scenes)
+    final_imgs = generate_final_images(refined_scenes)
 
-    return scenes
+    return final_imgs
